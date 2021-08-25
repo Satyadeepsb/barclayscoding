@@ -1,5 +1,8 @@
 package com.barclays.services;
 
-public interface BookService {
+import com.barclays.entity.Book;
+
+
+public interface BookService extends BaseService<Book>{
     
 }
