@@ -8,9 +8,9 @@ public class Book  extends AbstractEntity{
      * 
      */
     private static final long serialVersionUID = -2252607267410155723L;
-    @Column(name = "name", length = 20)
+    @Column(name = "name", length = 20,nullable = false)
     private String name;
-    @Column(name = "author", length = 20)
+    @Column(name = "author", length = 20, nullable = false)
     private String author;
     public String getName() {
         return name;
@@ -53,6 +53,8 @@ public class Book  extends AbstractEntity{
             return false;
         return true;
     }
+    
+
     public Book(String name, String author) {
         super();
         this.name = name;

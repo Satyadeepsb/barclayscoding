@@ -33,4 +33,17 @@ public class BookRepositoryTests {
       }
     
     
+    @Test
+    public void testFindByName() {
+        Book bookLocal =  new Book("Iron Man", "Satyadeep");
+        entityManager.persist(bookLocal);
+        List<Book> books = repository.findByName("Iron Man");
+        assertThat(books.stream().map(Book::getName).filter(b -> "Iron Man".equals(b)).findAny().orElse("")).isEqualTo("Iron Man");
+      }
+    
+   
+    
+    
+     
+    
 }
