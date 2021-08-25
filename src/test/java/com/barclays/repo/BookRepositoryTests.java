@@ -2,6 +2,7 @@ package com.barclays.repo;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import org.junit.jupiter.api.Test;
@@ -39,6 +40,18 @@ public class BookRepositoryTests {
         entityManager.persist(bookLocal);
         List<Book> books = repository.findByName("Iron Man");
         assertThat(books.stream().map(Book::getName).filter(b -> "Iron Man".equals(b)).findAny().orElse("")).isEqualTo("Iron Man");
+      }
+    
+    @Test
+    public void testGetAll() {
+        Book bookLocal1 =  new Book("Iron Man", "Satyadeep");
+        Book bookLocal2 =  new Book("Iron Man2", "Satyadeep");
+        Book bookLocal3 =  new Book("Iron Man3", "Satyadeep");
+        entityManager.persist(bookLocal1);
+        entityManager.persist(bookLocal2);
+        entityManager.persist(bookLocal3);
+        List<Book> books = repository.findAll();
+        assertThat(books.size()).isEqualTo(3);
       }
     
    
