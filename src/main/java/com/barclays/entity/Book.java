@@ -53,5 +53,10 @@ public class Book  extends AbstractEntity{
             return false;
         return true;
     }
+    public Book(String name, String author) {
+        super();
+        this.name = name;
+        this.author = author;
+    }
     
 }
